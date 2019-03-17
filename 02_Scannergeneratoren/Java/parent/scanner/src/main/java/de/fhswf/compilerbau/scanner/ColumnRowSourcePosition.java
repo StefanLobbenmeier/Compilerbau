@@ -1,4 +1,4 @@
-package de.fhswf.compilerbau;
+package de.fhswf.compilerbau.scanner;
 
 import java.util.Objects;
 

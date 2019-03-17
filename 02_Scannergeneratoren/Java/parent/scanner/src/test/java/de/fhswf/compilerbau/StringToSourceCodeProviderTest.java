@@ -2,6 +2,9 @@ package de.fhswf.compilerbau;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import de.fhswf.compilerbau.scanner.ColumnRowSourcePosition;
+import de.fhswf.compilerbau.scanner.StringToSourceCodeProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 

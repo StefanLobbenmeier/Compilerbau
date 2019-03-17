@@ -1,7 +1,7 @@
-package de.fhswf.compilerbau;
+package de.fhswf.compilerbau.scanner;
 
-class Token {
-    enum Type { EOF, ERROR };
+public class Token {
+    public enum Type { EOF, ERROR };
     Type type;
     String content;
     SourcePosition startPosition;
