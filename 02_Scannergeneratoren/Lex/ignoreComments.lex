@@ -1,4 +1,5 @@
 Comment \/\/[^$]*
+IgnoreEverythingElse (.|\n)
 
 %option noyywrap
 %option yylineno
@@ -6,6 +7,7 @@ Comment \/\/[^$]*
 %%
 
 {Comment} { printf("Zeilenkomment bei Zeile %d:\n%s\n", yylineno, yytext); }
+{IgnoreEverythingElse}
 
 %%
 
