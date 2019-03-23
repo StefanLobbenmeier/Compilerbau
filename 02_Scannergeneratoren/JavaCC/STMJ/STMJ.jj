@@ -1,0 +1,63 @@
+PARSER_BEGIN(STMJ)
+public class STMJ {}
+PARSER_END(STMJ)
+
+<DEFAULT> TOKEN : {
+<If : "if">
+| <Else: "else">
+| <Do: "do">
+| <While: "while">
+| <Return: "return">
+| <StringTemplate: "stringtemplate">
+| <Class: "class">
+| <Public: "public">
+| <Private: "private">
+| <Static: "static">
+| <Println: "System.out.println">
+| <Print: "System.out.print">
+| <Int: "int">
+| <Double: "double">
+| <StringT: "String">
+| <Char: "char">
+| <CharLiteral: "‘"~["\n"] "‘">
+| <Boolean: "boolean">
+|<BooleanLiteral: "true" | "false">
+|<StringLiteral: "\"" (~["\n"])* "\"">
+| <#Num: ["0"-"9"]>
+| <IntegerLiteral: ["1"-"9"](<Num>)* | "0">
+| <DoubleLiteral: <IntegerLiteral> "." (<Num>)* | "." (<Num>)+>
+| <IncOperator: "++" | "--">
+| <MultOperator: "*" | "/" | "%">
+| <AddOperator: "+" | "-">
+| <AndOperator: "&&">
+| <OrOperator: "||">
+| <NotOperator: "!">
+| <CompOperator: ">" | "<" | "==" | ">=" | "<=" | "!=">
+|<AssignOperator: "=">
+| <Identifier: ["a"-"z", "A"-"Z"] (["a"-"z", "A"-"Z"] |<Num>)*>
+| <Single: ["(", ")", "{","}","[","]",",",".", ":", ";"]>
+}
+
+<DEFAULT> SKIP : {
+<#WhiteSpace: "\t" | " ">
+| <(<WhiteSpace> | "\n")+ >
+| <"/*"> : INCOMMENT
+| <"//" (~["\n"])* >
+}
+<INCOMMENT> SKIP:{
+<"*/"> :  DEFAULT
+| <~[]>
+}
+
+<DEFAULT> Token : {
+<StartStringTemplate: (<WhiteSpace>)* "!{"
+(<WhiteSpace>)* "\n"> : INSIDE
+}
+
+<INSIDE> TOKEN: {
+<String: (~["<","!"])+ | "<" | "!">
+| <Variable: "<" <Identifier> ">">
+|<VariableWithSep: "<" <Identifier> ":" (~[">"])+ ">">
+| <EndStringTemplate: (<WhiteSpace>)* "!}"
+(<WhiteSpace>)* "\n"> : DEFAULT
+}

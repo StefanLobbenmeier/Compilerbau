@@ -1,0 +1,4 @@
+clang -cc1 -dump-tokens sum.c > sum_clang_tokens.txt 2>&1
+clang -cc1 -dump-raw-tokens sum.c > sum_clang_raw_tokens.txt 2>&1
+gcc -O0 -S sum.c
+gcc -O0 -S sum.c -fdump-passes
