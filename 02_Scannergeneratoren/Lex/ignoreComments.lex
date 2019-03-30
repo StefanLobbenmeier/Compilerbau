@@ -1,4 +1,5 @@
 LineComment \/\/.*$
+BlockComment (\/\*)([^*]+|(\*[^\/]))*(\*\/)
 IgnoreEverythingElse (.|\n)
 
 %option noyywrap
@@ -6,8 +7,9 @@ IgnoreEverythingElse (.|\n)
 
 %%
 
-{LineComment} { printf("Zeilenkomment bei Zeile %d:\n%s\n", yylineno, yytext); }
-(.|\n)
+{LineComment} { printf("Zeilenkommentar bei Zeile %d:\n%s\n", yylineno, yytext); }
+{BlockComment} { printf("Blockkommentar bei Zeile %d:\n%s\n", yylineno, yytext); }
+{IgnoreEverythingElse}
 
 %%
 int main(int argc, char **argv) {
