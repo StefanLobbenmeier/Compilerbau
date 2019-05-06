@@ -38,11 +38,12 @@ void expr() {
 ```
 
 ## 5.3
+```
 Prod → Prod "*" Expo | Prod "/" Expo | Prod "%" Expo | Expo  
 
 ProdList -> Expo "*" ProdList | Expo "/" ProdList | Expo "%" ProdList | ε
 Prod -> Expo ProdList  
-
+```
 ## 5.4
 ```java
 void prodList(Node left) {
@@ -71,9 +72,10 @@ Node prod() {
 ```
 
 ## 5.5  
-
+```
 First(Sign) =  
 First(Sign →"!"  Sign) ∪ First(Sign →"+" Sign) ∪ First(Sign →"-" Sign) ∪ First(Sign → Atom) =  
 {"!"} ∪ {"+"} ∪ {"-"} ∪ First(Atom) =  
 {"!"} ∪ {"+"} ∪ {"-"} ∪ ({IntegerLiteral} ∪ {DoubleLiteral} ∪ {Bezeichner} ∪ {"("}) =  
-{"!", "+", "-", IntegerLiteral, DoubleLiteral, Bezeichner, "("}) =  
+{"!", "+", "-", IntegerLiteral, DoubleLiteral, Bezeichner, "("})
+```
