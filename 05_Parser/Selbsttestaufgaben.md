@@ -1,6 +1,6 @@
 # Selbsttestaufgaben
 
-## Selbsttestaufgabe 5.1
+## 5.1
 
 ```java
 class Mult extends BinaryOperator {
@@ -15,7 +15,7 @@ class Int extends Atom {
 }
 ```
 
-## Selbsttestaufgabe 5.2
+## 5.2
 
 ```java
 void exprList() {
@@ -27,7 +27,7 @@ void exprList() {
             exprList();
             break;
         default:
-            // epsilon
+            // ε
             break;
     }
 }
@@ -36,3 +36,10 @@ void expr() {
     exprList();
 }
 ```
+
+## 5.3
+Prod → Prod "*" Expo | Prod "/" Expo | Prod "%" Expo | Expo  
+
+Prod -> Expo ProdList  
+ProdList -> Expo "*" ProdList | Expo "/" ProdList | Expo "%" ProdList | ε
+
