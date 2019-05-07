@@ -96,3 +96,16 @@ Follow(Atom) ⊇ Follow(Sign) ⊇ {"+", "-", "EOF", ")"}
 Follow(Sign) = {"+", "-", "EOF", ")"}
 Follow(Atom) = {"+", "-", "EOF", ")"}
 ```
+
+## 5.8
+```java
+// EBNF Sign = { "!" | "+" | "-" } Atom;
+void sign() {
+    while(
+        getToken(0).type == "!" ||
+        getToken(0).type == "+" ||
+        getToken(0).type == "-"
+    ) matchToken();
+    atom();
+}
+```
