@@ -86,3 +86,13 @@ First(Sign →"!"  Sign) ∪ First(Sign →"+" Sign) ∪ First(Sign →"-" Sign)
 {"-"} -> Sign → "-" Sign
 {IntegerLiteral, "("} -> Sign → Atom
 ```
+
+## 5.7
+```
+Runde 1:
+Follow(Sign) ⊇ {First(ExprList) ∪ Follow(ExprList)} ⊇ {"+", "-", "EOF", ")"}
+Follow(Atom) ⊇ Follow(Sign) ⊇ {"+", "-", "EOF", ")"}
+
+Follow(Sign) = {"+", "-", "EOF", ")"}
+Follow(Atom) = {"+", "-", "EOF", ")"}
+```
