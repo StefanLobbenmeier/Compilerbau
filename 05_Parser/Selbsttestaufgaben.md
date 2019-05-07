@@ -79,3 +79,10 @@ First(Sign →"!"  Sign) ∪ First(Sign →"+" Sign) ∪ First(Sign →"-" Sign)
 {"!"} ∪ {"+"} ∪ {"-"} ∪ ({IntegerLiteral} ∪ {DoubleLiteral} ∪ {Bezeichner} ∪ {"("}) =  
 {"!", "+", "-", IntegerLiteral, DoubleLiteral, Bezeichner, "("})
 ```
+
+## 5.6
+```
+{"+"} -> Sign → "+" Sign
+{"-"} -> Sign → "-" Sign
+{IntegerLiteral, "("} -> Sign → Atom
+```
